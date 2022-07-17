@@ -1,0 +1,33 @@
+.users {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgb(214, 217, 53);
+  border-radius: 15px;
+}
+
+.users button {
+  background-color: greenyellow;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.users div:nth-child(2) div {
+  width: 80%;
+  background-color: rgba(248, 121, 52, 0.713);
+  border-radius: 10px;
+}
+.users h3 {
+  background-color: rgb(38, 255, 0);
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.users ul {
+  list-style: decimal;
+}
