@@ -5,6 +5,8 @@ import styles from "./Users.module.css";
 const Users = () => {
   //   const [error, setNewError] = useState(null);
   const [usersArray, setNewUsersArray] = useState([]);
+  const [loading, setLoadding] = useState(true);
+  const [error, setNewError] = useState(null);
   //
 
   const getDataHandler = useCallback(async () => {
@@ -22,9 +24,10 @@ const Users = () => {
       for (const key in data) {
         // console.log(key, data[key]);
         setNewUsersArray((prevSate) => [...prevSate, data[key]]);
+        setLoadding(false);
       }
     } catch (error) {
-      console.log(error);
+      setNewError(error.message);
     }
   }, []);
   //   console.log(usersArray);
@@ -44,11 +47,12 @@ const Users = () => {
         </p>
         <button onClick={getDataHandler}>Get Data from Firebase</button>
       </div>
+      {loading && !error && <h4>loading .......</h4>}
+      {error && <h4>{error}</h4>}
       <div>
         {usersArray.map((user) => (
           <div key={Math.random()}>
             <h3>{user.userName}</h3>
-
             <ul>
               {user.skills.map((skill) => (
                 <li key={skill + Math.random()}>{skill}</li>
